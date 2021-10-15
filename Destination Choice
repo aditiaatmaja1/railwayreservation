@@ -1,0 +1,315 @@
+public void DestinationsAvailable()
+    {
+        System.out.println("//////////// The destinations available are ///////////////");
+        System.out.println("1.New Delhi to Vishakapatnam");
+        System.out.println("2.Ahmedabad Junction to Allahbad Junction");
+        System.out.println("3.Mumbai Central to Ahmedabad Junction");
+        System.out.println("4.Pune Junction to Mumbai Cst");
+        System.out.println("5.Dadar to Bhuj");
+        System.out.println("////////////////////////////////////////////////////////////");
+    }
+
+public void destchoice()
+    {
+        while(true)
+        {
+            try
+            {
+                System.out.println("Please Enter choice of Destination");
+                dc[cd]=sc.nextInt();
+                sc.nextLine();
+            }
+
+            catch(InputMismatchException e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;   
+            }
+            if(dc[cd]>6||dc[cd]<1)
+            {   
+                System.out.println("Please Enter Correct Choice(from 1 to 5 only)");
+                continue;
+            }
+            break;
+        }
+        if (dc[cd]==1)
+        {
+            System.out.println("\t\t\t\t\t\t\t\t\t\t");
+            System.out.println("------------Booking for New Delhi to Vishakapatnam-------------");
+            Newdelhi();
+        }
+        if (dc[cd]==2)
+        {
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t");
+            System.out.println("-----------Booking for Ahmedabad Junc. to Allahbad Junction------------");
+            Ahmedabad();
+        }
+        if (dc[cd]==3)
+        {
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t");
+            System.out.println("---------------Booking for Mumbai Central to Ahmedabad Junc.----------");
+            Mumbai();
+        }
+        if (dc[cd]==4)
+        {
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t");
+            System.out.println("------------------Booking for Pune to Mumbai Cst.--------------");
+            Pune();
+        }
+        if (dc[cd]==5)
+        {
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t");
+            System.out.println("-----------------Booking for Dadar to Bhuj-------------");
+            Dadar();
+        }
+
+    }
+
+    public void Newdelhi()
+    {
+        System.out.println("The trains available from New Delhi to Vishakapatnam are:-");
+        System.out.println("1.Dakshin Express-- 12341");
+        System.out.println("2.Samta Express--12342");
+
+        while(true)
+        {
+            try 
+            {
+                System.out.println("Enter your choice");
+                dxarr[dx]=sc.nextInt();
+                sc.nextLine();
+            }
+
+            catch(InputMismatchException e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;   
+            }
+            if(dxarr[dx]>2||dxarr[dx]<1)
+            {   
+                System.out.println("Please Enter Correct Choice");
+                continue;
+            }
+
+            if (dxarr[dx]==1)
+            {
+                System.out.println("\t\t\t Welcome to dakshin Express");
+                BookingDakshinExpress();
+                break;
+            }
+            else if (dxarr[dx]==2)
+            {
+                System.out.println("\t\t\t Welcome to samta Express");
+                BookingSamtaExpress();
+                break;
+            }
+        }
+    }
+
+    public void Ahmedabad()
+    {
+        System.out.println("The trains available from Ahmedabad junc. to allahbad Junc. are:-");
+        System.out.println("1.Garbha Express--12343");
+        System.out.println("2.Azimabad Express--12344");
+
+        while(true)
+        {
+            try 
+            {
+                System.out.println("Enter your choice");
+                aharr[ah]=sc.nextInt();
+                sc.nextLine();
+            }
+
+            catch(InputMismatchException e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;   
+            }
+            if(aharr[ah]>2||aharr[ah]<1)
+            {   
+                System.out.println("Please Enter Correct Choice");
+                continue;
+            }
+
+            if (aharr[ah]==1)
+            {
+                System.out.println("\t\t\tWelcome to Garbha Express");
+                BookingGarbhaExpress();
+                break;
+            }
+            else if (aharr[ah]==2)
+            {
+                System.out.println("\t\t\tWelcome to Azimabad Express");
+                BookingAzimabadExpress();
+                break;
+            }
+            break;
+        }
+
+    }
+
+    public void Mumbai()
+    {
+        System.out.println("The trains available from Mumbai Central to Ahmedabad Junc are:-");
+        System.out.println("1.Saurashtra Express--12345");
+        System.out.println("2. Adi Duronto Express--12346");
+
+        while(true)
+        {
+            try 
+            {
+                System.out.println("Enter your choice");
+                muarr[mu]=sc.nextInt();
+                sc.nextLine();
+            }
+
+            catch(InputMismatchException e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;   
+            }
+            if(muarr[mu]>2||muarr[mu]<1)
+            {   
+                System.out.println("Please Enter Correct Choice");
+                continue;
+            }
+
+            if (muarr[mu]==1)
+            {
+                System.out.println("\t\t\t Welcome to Saurashtra Express");
+                BookingSaurashtraExpress();
+                break;
+            }
+            else if (muarr[mu]==2)
+            {
+                System.out.println("\t\t\ttWelcome to Adi Duronto Express");
+                BookingAdiExpress();
+                break;
+            }
+        }
+    }
+
+    public void Pune()
+    {
+        System.out.println("The trains available from Pune to Mumbai Cst. are:-");
+        System.out.println("1.Deccan Queen--12347");
+        System.out.println("2.Intercity Express--12348");
+
+        while(true)
+        {
+            try 
+            {
+                System.out.println("Enter your choice");
+                puarr[pu]=sc.nextInt();
+                sc.nextLine();
+            }
+
+            catch(InputMismatchException e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;   
+            }
+            if(puarr[pu]>2||puarr[pu]<1)
+            {   
+                System.out.println("Please Enter Correct Choice");
+                continue;
+            }
+
+            if (puarr[pu]==1)
+            {
+                System.out.println("\t\t\t Welcome to Deccan Queen");
+                BookingDeccanQueenExpress();
+                break;
+            }
+            else if (puarr[pu]==2)
+            {
+                System.out.println("\t\t\t Welcome to Intercity Express");
+                BookingIntercityExpress();
+                break;
+            }
+        }
+    }
+
+    public void Dadar()
+    {
+        System.out.println("///The trains available from Dadar to Bhuj are:-");
+        System.out.println("1.Bhuj Dadar Superfast Express--12349");
+        System.out.println("2.Dadar Ten Express--12340");
+
+        while(true)
+        {
+            try 
+            {
+                System.out.println("Enter your choice");
+                daarr[da]=sc.nextInt();
+                sc.nextLine();
+            }
+
+            catch(InputMismatchException e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Please Enter Correct Choice");
+                sc.nextLine();
+                continue;   
+            }
+            if(daarr[da]>3||daarr[da]<0)
+            {   
+                System.out.println("Please Enter Correct Choice");
+                continue;
+            }
+
+            if (daarr[da]==1)
+            {
+                System.out.println("\t\t\t Welcome to Bhuj Dadar Superfast Express");
+                BookingBhujExpress();
+                break;
+            }
+            else if (daarr[da]==2)
+            {
+                System.out.println("\t\t\t Welcome to Dadar ten Express");
+                BookingDadarTenExpress();
+                break;
+            }
+        }
+    }
