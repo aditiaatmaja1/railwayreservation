@@ -1,0 +1,29 @@
+public void Continue()
+    {
+        /*#Start Of Method Continue()*/
+        System.out.println("Do You Want to Continue?(Y/N)");
+        hc=sc.nextLine();
+        if(hc.equalsIgnoreCase("Y"))
+        {
+
+            menu();    
+        }
+        else if(hc.equalsIgnoreCase("N"))
+        {
+            System.out.println("Thank You");
+        }
+        else 
+        {
+            System.out.println("Please Enter only Y for Yes and N for No");
+        }
+        /*#End Of Method Continue()*/
+    }
+
+
+
+void delay()
+    {
+        //delay loop for generating a delay between the outputs
+        for(double d=0;d<=Math.pow(10,5);d++);
+
+    }
