@@ -1,0 +1,26 @@
+public String PnrNumberGenerator()
+    { 
+        int i=pnrnum; 
+
+        String pn="pnr";
+        String pnr1="";
+        if (i<10)
+        {
+            pnr1=pn+"00"+i;
+            return pnr1;
+
+        }
+        else if(i>=10 && i<100)
+        {
+            pnr1=pn+"0"+i;
+            return pnr1;
+
+        }
+        else
+        {
+            pnr1=pn+i;
+            return pnr1;
+
+        }
+
+    }
