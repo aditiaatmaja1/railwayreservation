@@ -1,0 +1,3011 @@
+public void BookingDakshinExpress()
+    {
+        /*#Start Of Method Booking()*/
+
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only 6 passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email id");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email id");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[j].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            ptname[j]=tname[0];
+            ptnum[j]=tnum[0];
+            pttravel[j]=pttravel[0];
+            System.out.println(typ[j]);
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading.........");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+        /*#End Of Method DakshinExpressBooking()*/
+    }
+
+    public void BookingSamtaExpress()
+    {
+        /*#Start Of Method Booking for Samta Express()*/
+        int u=0;
+
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[1];
+            ptnum[j]=tnum[1];
+            pttravel[j]=pttravel[1];
+            System.out.println(typ[j]);
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading.........");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+    }
+
+    /*#End Of Method Booking()*/
+
+    public void BookingGarbhaExpress()
+    {
+        /*#Start Of Method Booking()*/
+
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[2];
+            ptnum[j]=tnum[2];
+            pttravel[j]=pttravel[2];
+            System.out.println(typ[j]);
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading.........");
+
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+        /*#End Of Method Booking()*/
+
+    }
+
+    public void BookingAzimabadExpress()
+    {
+        /*#Start Of Method Booking()*/
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[3];
+            ptnum[j]=tnum[3];
+            pttravel[j]=pttravel[3];
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading..............");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+        /*#End Of Method Booking()*/
+
+    }
+
+    public void BookingSaurashtraExpress()
+    {
+        /*#Start Of Method Booking()*/
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[4];
+            ptnum[j]=tnum[4];
+            pttravel[j]=pttravel[4];
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading..............");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+        /*#End Of Method Booking()*/
+    }
+
+    public void BookingAdiExpress()
+    {
+        /*#Start Of Method Booking()*/
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[5];
+            ptnum[j]=tnum[5];
+            pttravel[j]=pttravel[5];
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading..............");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+        /*#End Of Method Booking()*/
+    }
+
+    public void BookingDeccanQueenExpress()
+    {
+        /*#Start Of Method Booking()*/
+
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[6];
+            ptnum[j]=tnum[6];
+            pttravel[j]=pttravel[6];
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading..............");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+        /*#End Of Method Booking()*/
+
+    }
+
+    public void BookingIntercityExpress()
+    {
+        /*#Start Of Method Booking()*/
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[7];
+            ptnum[j]=tnum[7];
+            pttravel[j]=pttravel[7];
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading..............");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+        /*#End Of Method Booking()*/
+    }
+
+    public void BookingBhujExpress()
+    {
+        /*#Start Of Method Booking()*/
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+                    System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+
+            
+            
+            ptname[j]=tname[8];
+            ptnum[j]=tnum[8];
+            pttravel[j]=pttravel[8];
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading..............");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+        /*#End Of Method Booking()*/
+    }
+
+    public void BookingDadarTenExpress()
+    {
+        /*#Start Of Method Booking()*/
+        int u=0;
+        delay();
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {   /*#Accepting Number Of Passenger*/
+                System.out.print("Enter Number of Passengers:");
+                n=sc.nextInt();
+                sc.nextLine();
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Please Enter valid number");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Please Enter Correct Input");
+                sc.nextLine();
+                continue;   
+            }
+            if(n>6)
+            {
+                System.out.println("You can book for only six passengers at a time");
+                continue;
+            }
+            if(n<1)
+            {
+                System.out.println("Please Enter Valid Number Of Passengers");
+                continue;
+            }
+            break;
+        }
+        no[cou]=n;
+        int j=0;
+        int total=cou+n;
+        int i=0;
+        bookloop:
+        for( j=cou;j<total;j++)
+        {
+            
+
+           
+
+            pp1=true;
+            System.out.println("\n\t\t\t–––––––––––––––––––");
+            System.out.println("\t\t\t Passenger Number "+(i+1));
+            System.out.println("\t\t\t–––––––––––––––––––");
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Ticket Type*/
+                    System.out.println("1.AC\n2.First Class\n3.Sleeper Class");
+                    System.out.print("Enter Type Of Ticket:");
+                    typ[j]=sc.nextLine();
+                }
+                catch(InputMismatchException e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Please Enter Correct Choice");
+                    sc.nextLine();
+                    continue;    
+                }
+                if(typ[j].equals("1")||typ[j].equals("2")||typ[j].equals("3"))
+                {
+                    break;
+                }
+                else
+                {   System.out.println("Please Enter valid choice");
+                    continue;
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Name Of The Passenger*/
+                System.out.print("Enter your Name:");
+                name[j]=sc.nextLine();
+
+                if(check_name(name[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Special Characters and Digits are not Allowed");
+                }
+            }
+
+            while(true)
+            {
+                /*#Accepting Gender Of The Passenger*/
+                System.out.print("Gender(M/F):");
+                gn[j]=sc.nextLine().toUpperCase();
+
+                if(gn[j].equalsIgnoreCase("M"))
+                {
+                    gn[j]="Male";
+                }
+                else if(gn[j].equalsIgnoreCase("F"))
+                {   
+                    gn[j]="Female";
+                }
+                else
+                {
+                    System.out.println("Please Enter Either M for Male or F For Female.");
+                    continue;
+                }
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   /*#Accepting Age Of The Passenger*/
+                    System.out.print("Age:");
+                    age[j]=sc.nextInt();
+                    sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Age");
+                    sc.nextLine();
+                    continue;   
+                } 
+                if(age[j]>100)
+                {
+                    System.out.println("Please Enter a Valid Age");
+                    continue;
+                }
+                if(age[j]<1)
+                {
+                    System.out.println("Please Enter Valid Age");
+                    continue;
+                }
+                if(i==0)
+                {   
+                    if(age[j]<18)
+                    {
+                        System.out.println("You Need to be 18 Years Old to Book a Ticket");
+                        j=j-1;
+                        continue bookloop;
+
+                    }
+                }
+
+                break;
+            }
+
+            while(true)
+            {
+                try
+                {   
+                    /*#Accepting Phone Number Of The Passenger*/
+System.out.print("Phone Number:");
+                    pno[j]=sc.nextLine();
+
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Phone Number");
+                    sc.nextLine();
+                    continue;   
+                }
+
+                if(pno[j].length()==10)
+                {
+                }
+                else
+                {
+                    System.out.println("Please Enter Valid Phone Number");
+                    continue;
+                }
+                break;
+            }
+            while(true)
+            {   
+                try
+                {   /*#Accepting Email Adress Of The Passenger*/
+                    System.out.print("Enter Email Adress:");
+                    ema[j]=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                for(int z=0;z<ema[j].length();z++)
+                {
+                    if(ema[cou].charAt(z)=='@')
+                    {
+                        dd=true;
+                        break;
+                    }
+                    else
+                    {
+                        dd=false;
+                    }
+                }
+                if(dd==false)
+                {
+                    System.out.println("Please Enter Valid Email Adress");
+                    continue;
+                }
+                try
+                {
+                    System.out.print("Confirm Email Address:");
+                    email=sc.nextLine();
+                }
+                catch(InputMismatchException obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;
+                }
+                catch(Exception obj)
+                {
+                    System.out.println("Please Enter Correct Email");
+                    sc.nextLine();
+                    continue;   
+                }
+                if(email.equals(ema[j]))
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please Enter Correct Email");
+                    continue;
+                }
+            }
+
+            if(typ[j].equals("1"))
+            {
+                cost+=3000;
+            }
+            if(typ[j].equals("2"))
+            {
+                cost+=5000;
+            }
+            else
+            {
+                cost+=1000;
+            }   
+
+            group[j]=Group;
+            cou++;
+            ptname[j]=tname[9];
+            ptnum[j]=tnum[9];
+            pttravel[j]=pttravel[9];
+            String temp=PnrNumberGenerator();
+            Pnr[j]=temp;
+            System.out.println("Loading..............");
+            System.out.println("Your PNR number is:"+Pnr[j]);
+        }
+        System.out.println("____________________________________");
+
+        System.out.println(" Your total cost is :Rs."+cost+"");
+        System.out.println(" Thank you for booking with IRCTC");
+        System.out.println(" Have a safe Journey");
+        System.out.println("_____________________________________");
+        cuo++;
+        Group++;
+        pnrnum++;
+
+        /*#End Of Method Booking()*/
+    }
