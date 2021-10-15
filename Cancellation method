@@ -1,0 +1,206 @@
+public void Cancellation()
+    {
+        /*#Start Of Method Cancellation()*/
+        System.out.println("\f");
+        while(true)
+        {
+            try
+            {
+                System.out.println("Enter PNR Number:-");
+                ppnr=sc.nextLine();
+
+            }
+            catch(InputMismatchException obj)
+            {
+                System.out.println("Enter Correct Input:-");
+                sc.nextLine();
+                continue;
+            }
+            catch(Exception obj)
+            {
+                System.out.println("Enter Correct Input:-");
+                sc.nextLine();
+                continue;  
+            } 
+            break;
+        }
+        int qq=0;
+        for(int o=0;o<cou;o++)
+        {
+            if(Pnr[o].equals(ppnr))
+            {
+
+                pp1=true;
+
+                System.out.println("Passenger Details");
+                System.out.println("–––––––––––––––––––––––––––––––––––––––––––––––");
+                System.out.println("Passenger Number "+(qq+1));
+                System.out.println("–––––––––––––––––––");
+                System.out.println("Name:"+name[o]);
+                System.out.println("Gender:"+gn[o]);
+                System.out.println("Age:"+age[o]);
+                System.out.println("Phone Number"+pno[o]); 
+                System.out.println("Email:"+ema[o]);               
+                System.out.println("Number Of Passengers:"+no[o]);
+                System.out.println("Ticket Type:"+typ[o]);
+                while(true)
+                {
+                    try
+                    {
+                        System.out.println("Do You Want to Cancel The Ticket?(Y/N)");
+                        yon=sc.nextLine();
+                    }
+                    catch(InputMismatchException obj)
+                    {
+                        System.out.println("Enter Correct Input");
+                        sc.nextLine();
+                        continue;
+                    }
+                    catch(Exception obj)
+                    {
+                        System.out.println("Enter Correct Input");
+                        sc.nextLine();
+                        continue;  
+                    }
+                    if(yon.length()>1)
+                    {
+                        System.out.println("Please enter Either Y for Yes or N for No");
+                        continue;
+                    }
+                    if(yon.equalsIgnoreCase("Y")||yon.equalsIgnoreCase("N"))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        System.out.println("Please enter Either Y for Yes or N for No");
+                        continue;   
+                    }
+
+                }
+
+                if(yon.equalsIgnoreCase("Y"))
+                {
+                    cancel[o]=1;
+                    System.out.println("Your Ticket Is Cancelled.");
+                }
+                else if(yon.equalsIgnoreCase("N"))
+                {
+
+                    System.out.println("Ticket not Cancelled");
+                }
+                yon="";
+                System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––");
+
+            }
+        }
+        if(pp1==false)
+        {   
+            System.out.println("PNR not Found.\nPlease Enter Correct PNR No.");
+        }
+        /*#End Of Method Cancellation()*/
+    }
+
+
+
+
+
+
+————————————————
+
+
+Passenger Search 
+
+public void PassengerSearch()
+    {   
+        /*#Start Of Method PassengerSearch()*/
+        System.out.println("\f");
+        String pnrnumber=""; 
+        int option=0;
+        while(true)
+        {
+            int flag=0;
+            System.out.println("Enter PNR Number");
+            pnrnumber=sc.nextLine();
+
+            for(int i=0;i<cou;i++)
+            {
+
+                if(Pnr[i].equals(pnrnumber))
+                {
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==1) break;
+            else
+            {
+                System.out.println("Please enter a valid PNR number....");
+                option++;
+                if(option==3)
+                {
+                    System.out.println("You have exceeded the number of attempts...");
+                    return;
+                }
+                continue;
+            }
+        }
+        boo=false;
+        for(int i=0;i<cou;i++)
+        {
+            if(Pnr[i].equals(pnrnumber))
+            {
+                q=i;
+
+            }
+            break;
+        }
+        while(true)
+        {
+
+            System.out.println("Enter the name of the passenger");
+            namee=sc.nextLine();
+
+            if(check_name(namee))
+            {
+            }
+            else
+            {
+                System.out.println("Special Characters and Digits are not Allowed");
+                continue;
+            }
+            break;
+        }
+        boo=true;
+        for(j=0;j<cou;j++)
+        {
+            if(cancel[j]==0)
+            {
+
+                if(namee.equalsIgnoreCase(name[j])&& Pnr[j].equalsIgnoreCase(pnrnumber))
+                {
+                    System.out.println("Passenger Found!");
+                    System.out.println("---The passenger details are as follows---");
+                    System.out.println("Name:"+(name[j]));
+                    System.out.println("Gender:"+gn[j]);
+                    System.out.println("Age:"+age[j]);
+                    System.out.println("Email:"+ema[j]);                    
+                    System.out.println("Phone Number"+pno[j]); 
+                    System.out.println("Ticket Type:"+typ[j]);
+                    System.out.println("Pnr Number:"+Pnr[j]);
+                    //System.out.println("Train journey from:"+pttravel[j]);
+                    break;
+                }
+                else
+                {
+                    boo=false;
+                    continue;
+                }
+            }
+            if(boo=false)
+            {
+                System.out.println("Passenger Not Found.");
+            }
+        }
+        //End Of Method PassengerSearch()
+    }
