@@ -1,0 +1,126 @@
+public void reservationchart(int trainn)
+    {
+        //Start Of Method reservationchart()
+        j=1;
+
+        if(trainn==12341)
+        {
+            System.out.println("Passenger List in Dakshin Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12342)
+        {
+            System.out.println("Passenger List in Samta Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12343)
+        {
+            System.out.println("Passenger List in Garbha Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12344)
+        {
+            System.out.println("Passenger List in Azimabad Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12345)
+        {
+            System.out.println("Passenger List in Saurashtra Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12346)
+        {
+            System.out.println("Passenger List in Adi Duronto Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12347)
+        {
+            System.out.println("Passenger List in Deccan Queen Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12348)
+        {
+            System.out.println("Passenger List in Intercity Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12349)
+        {
+            System.out.println("Passenger List in Bhuj Dadar Superfast Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+        else if(trainn==12340)
+        {
+            System.out.println("Passenger List in Dadar ten Express");
+            System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––");
+        }
+
+        System.out.println("Passenger List in AC class");
+        System.out.println("_________________________________");
+        System.out.println(String.format("%7s %2s %-21s %4s %3s %4s %12s","Sr.No.","\t","Name","\t","Age","\t","Phone Number"));    
+
+        for(int i=0;i<cou;i++)
+        {
+
+            if(typ[i].equals("1"))
+            {
+
+                if(ptnum[i].equals(Integer.toString(trainn))&& cancel[i]==0)
+                {
+
+                    String b="";
+
+                    b=(String.format("%7s %4s %22s %4s %3s %4s %12s",j++,"\t",name[i],"\t",age[i],"\t",pno[i]));
+
+                    System.out.println(b);
+
+                }
+            }
+        }
+        System.out.println("______________________________");
+        System.out.println("Passenger List in FIRST class");
+        System.out.println("–––––––––––––––––––––––––––––––––––");
+        System.out.println(String.format("%7s %2s %-21s %4s %3s %4s %12s","Sr.No.","\t","Name","\t","Age","\t","Phone Number"));    
+        j=1;
+        for(int i=0;i<cou;i++)
+        {
+            if(typ[i].equals("2"))
+            {
+
+                if(ptnum[i].equals(Integer.toString(trainn))&& cancel[i]==0)
+                {
+                    String b="";
+
+                    b=(String.format("%7s %4s %22s %4s %3s %4s %12s",j++,"\t",name[i],"\t",age[i],"\t",pno[i]));
+
+                    System.out.println(b);
+
+                }
+            }
+        }
+        System.out.println("__________________________________________________________");
+        System.out.println("\n\nPassenger List in SLEEPER class");
+        System.out.println("––––––––––––––––––––––––––––––––––––––");
+        System.out.println(String.format("%7s %2s %-21s %4s %3s %4s %12s","Sr.No.","\t","Name","\t","Age","\t","Phone Number"));    
+        j=1;
+        for(int i=0;i<cou;i++)
+        {
+
+            if(typ[i].equals("3"))
+            {
+
+                if(ptnum[i].equals(Integer.toString(trainn))&& cancel[i]==0)
+                {
+                    String b="";
+
+                    b=(String.format("%7s %4s %22s %4s %3s %4s %12s",j++,"\t",name[i],"\t",age[i],"\t",pno[i]));
+
+                    System.out.println(b);
+
+                }
+
+            }
+
+        }
+
+        System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––");
+    }
